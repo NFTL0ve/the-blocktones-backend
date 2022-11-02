@@ -66,7 +66,7 @@ Post.findById(postId)
 
 })
 
-// PUT  /api/projects/:projectId  -  Updates a specific project by id
+// PUT  /api/posts/:postsId  -  Updates a specific project by id
 router.put('/post/:postId', (req, res, next) => {
   const { postId } = req.params;
  
