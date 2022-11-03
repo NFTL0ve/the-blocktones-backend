@@ -12,10 +12,8 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required."],
     },
-    userId: {
-      type: String,
-      required: [true, "user ID is required."],
-  },
+   
+  
 }
 );
 

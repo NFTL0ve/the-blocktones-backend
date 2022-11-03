@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 const Post = require('../models/Post.model');
 
 
-//  POST /api/projects  -  Creates a new project
-router.post('/post', (req, res, next) => {
+//  POST /api/posts  -  Creates a new post
+router.post('/posts', (req, res, next) => {
   const { name, text, postId } = req.body;
   const newPost = {
     name,
@@ -28,7 +28,7 @@ router.post('/post', (req, res, next) => {
 
 
 //get
-router.get('/post', (req, res, next) => {
+router.get('/posts', (req, res, next) => {
   Post.find()
     .then(allPosts => res.json(allPosts))
     .catch(err =>
@@ -44,7 +44,7 @@ router.get('/post', (req, res, next) => {
 //get post id
 
 
-router.get('/post/:postId', (req, res, next) => 
+router.get('/posts/:postId', (req, res, next) => 
 {
   const { postId } = req.params;
 
@@ -54,7 +54,7 @@ router.get('/post/:postId', (req, res, next) =>
   }
 
 Post.findById(postId)
-.populate('post')
+.populate('posts')
 .then(post => res.json(post))
 .catch(err => {
   console.log("error getting post details...", err);
@@ -66,8 +66,8 @@ Post.findById(postId)
 
 })
 
-// PUT  /api/posts/:postsId  -  Updates a specific project by id
-router.put('/post/:postId', (req, res, next) => {
+// PUT  /api/posts/:postsId  -  Updates a specific post by id
+router.put('/posts/:postId', (req, res, next) => {
   const { postId } = req.params;
  
   if (!mongoose.Types.ObjectId.isValid(postId)) {
@@ -82,8 +82,8 @@ router.put('/post/:postId', (req, res, next) => {
 
 
 
-// DELETE  /api/projects/:projectId  -  Deletes a specific project by id
-router.delete('/post/:postId', (req, res, next) => {
+// DELETE  /api/posts/:postId  -  Deletes a specific post by id
+router.delete('/posts/:postId', (req, res, next) => {
   const { postId } = req.params;
   
   if (!mongoose.Types.ObjectId.isValid(postId)) {

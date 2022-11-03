@@ -4,7 +4,7 @@ const { Schema, model } = mongoose;
 const postSchema = new Schema({
     name: String,
     text: String,
-    postId: Number
+    postId: Number,
 });
 
 const Post = model('Post', postSchema);
